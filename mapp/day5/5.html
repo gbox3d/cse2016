@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+        
+    </head>
+    <body>
+
+        <div id="full-screen" ></div>
+
+        <script>
+            document.querySelector("#full-screen").style.backgroundColor="red";
+
+            function OnresizeWindow() {
+                document.querySelector("#full-screen").style.height = 
+                window.innerHeight;
+                document.querySelector("#full-screen").style.width = 
+                window.innerWidth;
+            }
+            OnresizeWindow();
+            
+            window.addEventListener('resize' ,OnresizeWindow);
+
+        </script>
+       
+    </body>
+</html>
