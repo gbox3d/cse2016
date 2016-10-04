@@ -1,0 +1,34 @@
+<html>
+    <head>
+    </head>
+    <body style="margin : 0px;" >
+
+        <div id="full-screen" ></div>
+
+        <script>
+            function foo(callback)
+            {
+                console.log("foo")
+                //bar();
+                callback();
+            }
+
+            function bar()
+            {
+                console.log("bar")
+            }
+
+            function car()
+            {
+                console.log("car");
+            }
+
+
+            foo(bar)
+            foo(car);
+
+            
+        </script>
+       
+    </body>
+</html>
