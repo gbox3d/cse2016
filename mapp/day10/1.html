@@ -1,0 +1,32 @@
+<html>
+    <head>
+    </head>
+    <body style="margin : 0px;" >
+        <script>
+            function CCal(a,b) {
+                var _a=a;
+                var _b=b;
+                
+                this.pub_a = _a;
+                this.pub_b = _b;
+
+
+                this.Sum = function() {
+                    return _a + _b;
+                }            
+            }
+
+            CCal.prototype.Sum2 = function() {
+                return this.pub_a + this.pub_b;
+                
+            }
+            
+
+            var obj = new CCal(7,2);
+
+            console.log( obj.Sum() )
+            console.log( obj.Sum2() )
+
+        </script>
+    </body>
+</html>

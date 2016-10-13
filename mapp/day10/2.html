@@ -1,0 +1,44 @@
+<html>
+    <head>
+    </head>
+    <body style="margin : 0px;" >
+
+        <ul>
+        <li name="name_test" >1</li>
+        <li name="name_test">2</li>
+        <li name="name_test">3</li>
+        <li class="cls_test">4</li>
+        <li class="cls_test">5</li>
+        <li class="cls_test">6</li>
+        <li id="test" >7</li>
+        <li>8</li>
+        </ul>
+
+        <script>
+            setTimeout( ()=> {
+                var elem = document.getElementsByName("name_test");
+                elem[0].innerText = "get element by name first";
+                elem[1].innerText = "get element by name second";
+                elem[2].innerText = "get element by name thrid";
+
+                var elem = document.getElementsByClassName("cls_test");
+                elem[0].innerText = "get element by class first";
+                elem[1].innerText = "get element by class second";
+                elem[2].innerText = "get element by class thrid";
+
+                var elem = document.getElementsByTagName("li");
+                elem[7].innerText = "get element by TagName";
+
+                var elem = document.getElementById("test");
+                elem.innerText = "get Element by ID";
+
+
+
+
+
+            },3000 );            
+            
+
+        </script>
+    </body>
+</html>
