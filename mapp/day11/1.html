@@ -13,6 +13,9 @@
         </ul>
         <div>
             <button id="btn1">add</button>
+            <button id="btn2">insert</button>
+            <button id="btn3">remove</button>
+            <button id="btn4">replace</button>
         </div>
 
         <script>            
@@ -23,8 +26,33 @@
                 var node = document.createElement('li');
                 node.innerText = "test node";
                 ul_elm.appendChild(node);
-
             });
+
+            document.getElementById("btn2")
+            .addEventListener("click",function() {
+                var node = document.createElement('li');
+                node.innerText = "test node";
+                var refNode = ul_elm.children[0];
+                ul_elm.insertBefore(node,refNode);
+            });
+
+            document.getElementById("btn3")
+            .addEventListener("click",function() {
+                var refNode = ul_elm.children[0];
+                ul_elm.removeChild(refNode);
+            });
+
+            document.getElementById("btn4")
+            .addEventListener("click",function() {
+                var node = document.createElement('li');
+                node.innerText = "replace node";
+                var refNode = ul_elm.children[0];
+                ul_elm.replaceChild(node,refNode);
+            });
+
+
+            
+
         </script>
     </body>
 </html>
