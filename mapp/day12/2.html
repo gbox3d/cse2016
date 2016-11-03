@@ -1,0 +1,28 @@
+
+<html>
+
+    <body>
+
+<canvas id="myCanvas" width="320" height="240"
+style="border: solid 1px black;"
+>
+</canvas>
+<script>
+    var canvas = document.querySelector("#myCanvas");
+    var context = canvas.getContext('2d');
+
+    context.moveTo(50,50);
+    context.lineTo(300,200);
+    context.lineTo(300,100);
+    context.lineTo(50,50);
+    context.strokeStyle = "rgb(255,0,0)"
+    context.lineWidth = 1;
+    context.stroke();
+
+</script>
+    
+
+    </body>
+
+
+</html>
