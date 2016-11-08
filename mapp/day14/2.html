@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>    
-
-<style>
-#gameobj-player {
-    transform-origin: 0% 0%;
-    transform: translate(160px,120px) rotate(45deg);
-}
-</style>
+    <head>   
 
     </head>    
     <body>
@@ -43,17 +36,32 @@
         </div>
         
         <script>
-                var player = 
-                document.querySelector("#gameobj-player");
-                var game_screen = 
-                document.querySelector("#game_screen");
 
-/*
-                player.style.transformOrigin = "16px 16px"
+            var player = 
+            document.querySelector("#gameobj-player");
+            var game_screen = 
+            document.querySelector("#game_screen");
+            
+            var angle = 0;
+            var oldTick = (new Date()).getTime();
+
+            function gameLoop()
+            {
+                var deltaTick = (new Date()).getTime() -
+                    oldTick;
+                
+                angle += (deltaTick/1000) * 45;
+
                 player.style.transform = 
-    'translate(160px,120px) rotate(45deg)'
-  */              
+    'translate(160px,120px) rotate(' + angle + 'deg)'                
+                
+                requestAnimationFrame(gameLoop);
 
+                oldTick = (new Date()).getTime();
+            }
+
+            gameLoop();
+            
                 
                 
         </script>

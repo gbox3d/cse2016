@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>    
-
-<style>
-#gameobj-player {
-    transform-origin: 0% 0%;
-    transform: translate(160px,120px) rotate(45deg);
-}
-</style>
+    <head>   
 
     </head>    
     <body>
@@ -43,18 +36,27 @@
         </div>
         
         <script>
-                var player = 
-                document.querySelector("#gameobj-player");
-                var game_screen = 
-                document.querySelector("#game_screen");
 
-/*
-                player.style.transformOrigin = "16px 16px"
-                player.style.transform = 
-    'translate(160px,120px) rotate(45deg)'
-  */              
+            var player = 
+            document.querySelector("#gameobj-player");
+            var game_screen = 
+            document.querySelector("#game_screen");
 
-                
+            var test_mat_T = new WebKitCSSMatrix();
+            var test_mat_R = new WebKitCSSMatrix();
+            var test_mat = new WebKitCSSMatrix();
+            
+            test_mat_T = test_mat_T.translate(160,120);
+            test_mat_R = test_mat_R.rotate(45);
+            // test = T * R
+            test_mat = test_mat_T.multiply(test_mat_R);
+
+            //test_mat.e = 160;
+            //test_mat.f = 120;
+
+            //이동예제 
+            player.style.transform = 
+            test_mat.toString();
                 
         </script>
 

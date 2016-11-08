@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>    
-
-<style>
-#gameobj-player {
-    transform-origin: 0% 0%;
-    transform: translate(160px,120px) rotate(45deg);
-}
-</style>
+    <head>   
 
     </head>    
     <body>
@@ -43,18 +36,14 @@
         </div>
         
         <script>
-                var player = 
-                document.querySelector("#gameobj-player");
-                var game_screen = 
-                document.querySelector("#game_screen");
 
-/*
-                player.style.transformOrigin = "16px 16px"
-                player.style.transform = 
-    'translate(160px,120px) rotate(45deg)'
-  */              
+            var player = 
+            document.querySelector("#gameobj-player");
+            var game_screen = 
+            document.querySelector("#game_screen");
 
-                
+            //이동예제 
+            player.style.transform = "matrix(1,0,0,1,160,120)";
                 
         </script>
 
