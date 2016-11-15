@@ -34,15 +34,37 @@
                     basex : 0,
                     basey : 0
                 });
+                
                 Smgr.add(node);
+
+                node.get('model').setPosition(100,100);
+                document.addEventListener('keydown',function(evt) {
+                    //console.log(evt);
+                    
+                    switch(evt.code) {
+                        case "KeyA":
+                        node.get('model').setPosition(
+    node.get('model').getPosition().X -= deltaTime * 100
+                            ,100);
+                        break;
+                        case "KeyD":
+                        node.get('model').setPosition(
+    node.get('model').getPosition().X += deltaTime * 100
+                            ,100);
+                        break;
+                    }
+
+                })
+
             }
         });
 
-        var mytimer = new gbox3d.core.Timer();
         //game loop
+        var mytimer = new gbox3d.core.Timer();
+        var deltaTime = mytimer.getDeltaTime();
         requestAnimationFrame(
             function loop() {
-                let deltaTime = mytimer.getDeltaTime();
+                deltaTime = mytimer.getDeltaTime();
                 Smgr.updateAll();
                 requestAnimationFrame(loop);
             }
