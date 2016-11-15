@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+        .gameobj {
+            position: absolute;
+            background-color: gray;
+        }
+        </style>
+    </head>
+    <body style="margin : 0px;" >
+        <div class="gameobj" id="root">
+                  root
+                  <div class="gameobj" id="child"
+                  style="transform:translate(100px,100px);"
+                   >
+                      child position 100,100
+                  </div>
+        </div>
+
+        <script>  
+        var rootObj = document.querySelector("#root");
+        var childObj = document.querySelector("#child");          
+        </script>
+    </body>
+</html>

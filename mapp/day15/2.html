@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+
+    </head>
+    <body style="margin : 0px;" >
+        <div id="gameobj" style="
+        position : absolute;
+        width : 32px;
+        height: 32px;
+        background-color: red;">
+        </div>
+
+        <script>            
+            var gameobj_element = 
+            document.querySelector("#gameobj");
+            gameobj_element.style.webkitTransition = 
+            "transform 2s linear";
+            document.addEventListener("click",function(evt) {
+                gameobj_element.style.webkitTransform = 
+                "translate("+evt.pageX + "px,"+evt.pageY+"px)";
+                gameobj_element.innerText = "시작";
+
+            });
+            gameobj_element
+            .addEventListener("webkitTransitionEnd",
+            function(evt) {
+                gameobj_element.innerText = "종료";
+            }
+            );
+            //gameobj_element.style.
+
+        </script>
+    </body>
+</html>
