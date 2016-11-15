@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<link href="https://gbox3d.github.io/pig2d/libs/pig2d/css/core.css" rel="stylesheet"></link>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/backbone/underscore-min.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/backbone/backbone-min.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/pig2d/js/core.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/pig2d/js/node2d.js"></script>
+
+    </head>
+    <body style="margin : 0px;" >
+        <div class="pig2d-fullscreen">
+        </div>
+
+        <script>
+        var Smgr = new Pig2d.SceneManager(
+            {
+                container : document.querySelector(
+                    ".pig2d-fullscreen"
+                    )
+            }
+        );
+
+        Pig2d.util.SetupAsset({
+            asset_path : "https://gbox3d.github.io/pig2d/res/",
+            img_files : [
+                "av8_harrier.png"
+            ],
+            OnLoadComplete : function(evt) {
+                let textures = evt.textures;
+                let node = Pig2d.util.createSlicedImage({
+                    imgObj : textures["av8_harrier.png"],
+                    basex : -textures["av8_harrier.png"].width/2,
+                    basey : -textures["av8_harrier.png"].height/2
+                });
+                
+                Smgr.add(node);
+                node.get('model').setPosition(200,200);
+                //node.get('model').setRotation(45);
+
+                document.addEventListener('keydown',function(evt) {
+                    //console.log(evt);
+                    switch(evt.code) {
+                        case "KeyA":
+                        node.get('model').rotate(
+                            -deltaTime *90
+                            )                        
+                        break;
+                        case "KeyD":  
+                        node.get('model').rotate(
+                            deltaTime *90
+                            )                          
+                        break;
+                    }
+                })
+
+
+
+            }
+                
+        });
+
+        //game loop
+        var mytimer = new gbox3d.core.Timer();
+        var deltaTime = mytimer.getDeltaTime();
+        requestAnimationFrame(
+            function loop() {
+                deltaTime = mytimer.getDeltaTime();
+                Smgr.updateAll();
+                requestAnimationFrame(loop);
+            }
+        )
+
+
+
+        </script>
+
+    </body>
+</html>
