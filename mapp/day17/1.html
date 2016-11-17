@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<link href="https://gbox3d.github.io/pig2d/libs/pig2d/css/core.css" rel="stylesheet"></link>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/backbone/underscore-min.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/backbone/backbone-min.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/pig2d/js/core.js"></script>
+<script src="https://gbox3d.github.io/pig2d/libs/pig2d/js/node2d.js"></script>
+
+    </head>
+    <body style="margin : 0px;" >
+        <div class="pig2d-fullscreen">
+        </div>
+
+        <script>
+        var Smgr = new Pig2d.SceneManager(
+            {
+                container : document.querySelector(
+                    ".pig2d-fullscreen"
+                    )
+            }
+        ); 
+        var node = new Pig2d.node();
+        var model = new Pig2d.model();
+
+        var element = document.createElement('div');
+        element.innerText = "P";
+        element.style.backgroundColor = 'yellow';
+        element.style.width = '64px';
+        element.style.height = '64px';
+        element.style.lineHeight = '64px';
+        element.style.textAlign = 'center';        
+
+
+        model.get('element').appendChild(element);
+        model.setPosition(160,120);
+        node.set({model:model});
+        Smgr.add(node);
+        Smgr.updateAll();
+
+        </script>
+
+    </body>
+</html>
