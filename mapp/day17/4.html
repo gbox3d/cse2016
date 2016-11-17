@@ -10,6 +10,19 @@
 
     </head>
     <body style="margin : 0px;" >
+
+        <div id='templete' style="display : none;">
+            <div class="test" style="
+            width:100px;
+            height:100px;
+            background-color : red;
+            " >
+            </div>
+            <img
+            class="test-2" 
+    src="https://gbox3d.github.io/pig2d/res/Ships/stateczek.png"/>
+        </div>
+
         <div class="pig2d-fullscreen">
         </div>
 
@@ -22,16 +35,20 @@
             }
         ); 
 
-        //https://gbox3d.github.io/pig2d/res/Ships/stateczek.png
         var node = new Pig2d.node();
         var model = new Pig2d.model();
-        model.setTexture({
-            texture : 'https://gbox3d.github.io/pig2d/res/Ships/stateczek.png',
-            texture_size : {width:100,height:100}
-        });
-        
+
+        var element = document.querySelector('#templete .test-2');
+        element = element.cloneNode(true);
+        model.get('element').appendChild(element);
+        model.setPosition(100,100);
         node.set({model:model});
         Smgr.add(node);
+
+        var clone_node = node.clone();
+        clone_node.get('model').setPosition(50,50);
+        Smgr.add(clone_node);
+
         Smgr.updateAll();
 
         </script>
