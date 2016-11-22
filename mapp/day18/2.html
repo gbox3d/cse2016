@@ -39,7 +39,7 @@
 
     <div id='pig2d-320240-screen'></div>
 
-    <div id="ui-pannel" style="height: 120px;background-color: #dcdcdc;">
+    <div id="ui-panel" style="height: 120px;background-color: #dcdcdc;">
         <div class='fire1' style="margin-top :30px; margin-left: 30px; display: inline-block; width: 60px;height: 60px; background-color: #ff0000"></div>
         <div class='fire2' style="margin-left: 30px;display: inline-block;width: 60px;height: 60px; background-color: #00ff00"></div>
         <div class='fire3' style="margin-left: 30px;display: inline-block;width: 60px;height: 60px; background-color: #0000ff"></div>
@@ -112,6 +112,25 @@
         sprite_node.add(node);
         sprite_node.animation_node = node;
         Smgr.add(sprite_node);
+
+        //달리기
+        document.querySelector('#ui-panel .fire1').addEventListener('click',function() {
+            //node.node_sprite.get('model').setFrame(0);
+            node.get('model').set('AnimationStatus','play');
+            node.get('model').set('isAnimationLoop','true');
+        });
+        //멈추기
+        document.querySelector('#ui-panel .fire2').addEventListener('click',function() {
+            node.get('model').set('AnimationStatus','stop');
+        });
+
+         //방향 전환
+        document.querySelector('#ui-panel .fire3').addEventListener('click',function() {
+            //토글
+            node.get('model').set('flipY',
+            !node.get('model').get('flipY'));
+        });
+
         
         //게임루프시작
         Pig2d.system.startGameLoop({
