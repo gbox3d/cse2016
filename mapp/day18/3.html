@@ -33,7 +33,7 @@
 
 <body>
 
-<div style="width: 320px; margin: auto;">
+<div style="width : 320px; margin: auto;">
 
     <p id='text-framerate-info'>frame rate</p>
 
@@ -48,7 +48,7 @@
 </div>
 <script>    
     function main(evt) {
-        
+
         //씬메니져 생성하기
         var Smgr = new Pig2d.SceneManager({
             container : document.querySelector('#pig2d-320240-screen')
@@ -57,6 +57,37 @@
                 height: 240
             }
         });
+
+        var node = Pig2d.util.createDynamicTextureNode(200);
+        node.setTexture(
+    'https://gbox3d.github.io/pig2d/res/cardset/ace1.png',
+    function() {});
+
+        document.querySelector('#ui-panel .fire1').addEventListener('click',
+        function() {
+            node.setTexture(
+    'https://gbox3d.github.io/pig2d/res/cardset/ace2.png',function() {
+        });
+        });
+
+        document.querySelector('#ui-panel .fire2').addEventListener('click',
+        function() {
+            node.setTexture(
+    'https://gbox3d.github.io/pig2d/res/cardset/ace3.png',function() {
+        });
+        });
+
+        document.querySelector('#ui-panel .fire3').addEventListener('click',
+        function() {
+            node.setTexture(
+    'https://gbox3d.github.io/pig2d/res/cardset/ace4.png',function() {
+        });
+        });
+
+
+        node.get('model').setPosition(160,120);
+        Smgr.add(node);
+
         
         //게임루프시작
         Pig2d.system.startGameLoop({
