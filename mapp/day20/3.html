@@ -49,15 +49,15 @@
             controls.target.set(0,0,0);
             controls.update();
             //씬노드 추가
-            var geometry = new THREE.SphereGeometry(
-                2.5, //지름의 크기 
-                64,
-                10,
-                0,
-                THREE.Math.degToRad(360),
-                0,
-                THREE.Math.degToRad(90)
+            
+            var geometry = new THREE.CylinderGeometry(
+                1, //위쪽원크기 
+                1, //아래쪽 원크기
+            2, //실린더 길이
+            64, //원 세그먼트수
+            5 //길이 세그먼트수
             )
+
             var matrial = new THREE.MeshBasicMaterial({
                 color : 0x00ff00,
                 wireframe : true
