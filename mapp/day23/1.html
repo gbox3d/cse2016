@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body style="margin : 0px;" >
+
+        <script>    
+mydatabase = {
+        memo : [            
+        ]
+    };
+if(localStorage.mtdataBase == null) {
+    localStorage.mtdataBase = JSON.stringify(mydatabase);
+}
+else {
+    mydatabase = JSON.parse(localStorage.mtdataBase);
+}
+
+function save() {
+    localStorage.mtdataBase = JSON.stringify(mydatabase);
+}
+
+
+
+        </script>
+    </body>
+</html>
